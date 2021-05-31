@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from desafio.planner.api.views.planner import PlannerView, PlannerViewDetail
+from rest_framework.authtoken.views import obtain_auth_token
+from desafio.planner.api.views.client_registry import RegisterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('planner', PlannerView.as_view(), name="planner"),
+    path('planner/<int:pk>', PlannerViewDetail.as_view()),
+    path('token', obtain_auth_token, name='token'),
+    path('register', RegisterView.as_view(), name='register')
 ]

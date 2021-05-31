@@ -4,4 +4,5 @@ from desafio.planner.models import Planner
 
 @admin.register(Planner)
 class PlannerAdmin(admin.ModelAdmin):
-    pass
+
+    list_display = ("name", "owner")
