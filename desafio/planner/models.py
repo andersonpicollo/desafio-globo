@@ -39,4 +39,4 @@ class TaskPlanner(models.Model):
     rgb_hex_code = models.CharField(max_length=7, verbose_name="Codigo RGB", null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Criado em")
     updated = models.DateTimeField(auto_now=True, verbose_name="Atualizado em", null=True)
-    planner = models.ForeignKey('Planner', on_delete=DO_NOTHING)
+    planner = models.ForeignKey('Planner', on_delete=DO_NOTHING, related_name='tasks')
